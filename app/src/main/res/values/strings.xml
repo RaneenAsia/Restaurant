@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">ProjectDraft</string>
+    <string name="email1">Email:</string>
+    <string name="password">Password:</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Sign uP</string>
+    <string name="continue_as_guest">Continue As Guest</string>
+    <string name="passHint">*******</string>
+    <string name="username1">username</string>
+    <string name="confirm_password">Confirm Password:</string>
+    <string name="passconf">*******</string>
+    <string name="sign_up1">Sign Up</string>
+    <string name="username">username</string>
+    <string name="email2">Email:</string>
+    <string name="confhint">*******</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="ready">Ready</string>
+    <string-array name="spin">
+        <item>Profits</item>
+        <item>Comments</item>
+        <item>Orders</item>
+    </string-array>
+</resources>
