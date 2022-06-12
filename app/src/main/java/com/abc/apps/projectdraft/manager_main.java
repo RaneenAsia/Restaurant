@@ -215,7 +215,7 @@ public class manager_main extends AppCompatActivity implements AdapterView.OnIte
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     order_class listItem = (order_class)listview.getItemAtPosition(position);
-                      Intent intent=new Intent(manager_main.this, deliverOrders.class);
+                    Intent intent=new Intent(manager_main.this, manager_orders.class);
                     intent.putExtra("KEY_NAME",listItem);
                     startActivity(intent);
 

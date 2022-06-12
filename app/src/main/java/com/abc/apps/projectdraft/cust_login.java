@@ -102,6 +102,9 @@ SharedPreferences sharedpref;
 
             queue.add(request);
             if (size2 != 0) {
+                Intent intent=new Intent(cust_login.this,menu_main.class);
+                intent.putExtra("username",logintxt.getText().toString());
+                startActivity(intent);
                 Log.e("hi","Done");
             } else {
                 Looper.prepare();
