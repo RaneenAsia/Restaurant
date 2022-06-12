@@ -183,11 +183,11 @@ public class manager_main extends AppCompatActivity implements AdapterView.OnIte
                     null, new Response.Listener<JSONArray>() {
                 @Override
                 public void onResponse(JSONArray response) {
-                    ArrayList<order> orders = new ArrayList<>();
+                    ArrayList<order_class> orders = new ArrayList<>();
                     for (int i = 0; i < response.length(); i++) {
                         try {
                             JSONObject obj = response.getJSONObject(i);
-                            orders.add(new order(Integer.parseInt(obj.getString("orderID")), obj.getString("customerID"), obj.getString("orderCon"),obj.getString("status"),Double.parseDouble(obj.getString("payment")),obj.getString("Address")));
+                            orders.add(new order_class(Integer.parseInt(obj.getString("orderID")), obj.getString("customerID"), obj.getString("orderCon"),obj.getString("status"),Double.parseDouble(obj.getString("payment")),obj.getString("Address")));
                             Log.v("hi", obj.toString() );
                         }catch(JSONException exception){
                             Log.d("Error", exception.toString());
@@ -214,7 +214,7 @@ public class manager_main extends AppCompatActivity implements AdapterView.OnIte
           listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    order listItem = (order)listview.getItemAtPosition(position);
+                    order_class listItem = (order_class)listview.getItemAtPosition(position);
                       Intent intent=new Intent(manager_main.this, deliverOrders.class);
                     intent.putExtra("KEY_NAME",listItem);
                     startActivity(intent);

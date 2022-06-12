@@ -47,11 +47,11 @@ public class deliver_main extends AppCompatActivity {
                     null, new Response.Listener<JSONArray>() {
                 @Override
                 public void onResponse(JSONArray response) {
-                    ArrayList<order> orders = new ArrayList<>();
+                    ArrayList<order_class> orders = new ArrayList<>();
                     for (int i = 0; i < response.length(); i++) {
                         try {
                             JSONObject obj = response.getJSONObject(i);
-                            orders.add(new order(Integer.parseInt(obj.getString("orderID")), obj.getString("customerID"), obj.getString("orderCon"),obj.getString("status"),Double.parseDouble(obj.getString("payment")),obj.getString("Address")));
+                            orders.add(new order_class(Integer.parseInt(obj.getString("orderID")), obj.getString("customerID"), obj.getString("orderCon"),obj.getString("status"),Double.parseDouble(obj.getString("payment")),obj.getString("Address")));
                             Log.e("hi", obj.toString() );
                         }catch(JSONException exception){
                             Log.d("Error", exception.toString());
@@ -93,10 +93,10 @@ public class deliver_main extends AppCompatActivity {
             lst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    order listItem =(order) lst.getItemAtPosition(position);
+                    order_class listItem =(order_class) lst.getItemAtPosition(position);
 
                     String[] str=listItem.toString().split(",");
-                    order ord1=new order(Integer.parseInt(str[0]),str[1],str[2],str[3],Double.parseDouble(str[4]),str[5]);
+                    order_class ord1=new order_class(Integer.parseInt(str[0]),str[1],str[2],str[3],Double.parseDouble(str[4]),str[5]);
                     Intent intent=new Intent(deliver_main.this, deliverOrders.class);
                     intent.putExtra("KEY_NAME",ord1);
                     startActivity(intent);

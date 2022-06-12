@@ -75,7 +75,7 @@ public class OrderScreen extends AppCompatActivity {
 
 
     public void placeOrder(String customerId, String orderStr, String status, double payment, String address){
-        String url = "http://192.168.1.111/Restaurant/addOrder.php";
+        String url = "http://192.168.1.104/rest2/addOrder.php";
         RequestQueue queue = Volley.newRequestQueue(OrderScreen.this);
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
