@@ -15,10 +15,10 @@ import org.json.JSONArray;
 import java.util.ArrayList;
 
 
-public class orderAdapter extends ArrayAdapter<order> {
+public class orderAdapter extends ArrayAdapter<order_class> {
     private int resourceLayout;
     private Context mContext;
-        public orderAdapter(Context context, int resource, ArrayList<order> users) {
+        public orderAdapter(Context context, int resource, ArrayList<order_class> users) {
             super(context, resource, users);
             this.resourceLayout=resource;
             this.mContext=context;
@@ -28,7 +28,7 @@ public class orderAdapter extends ArrayAdapter<order> {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             // Get the data item for this position
-            order user = getItem(position);
+            order_class user = getItem(position);
             // Check if an existing view is being reused, otherwise inflate the view
             if (convertView == null) {
                 LayoutInflater vi;

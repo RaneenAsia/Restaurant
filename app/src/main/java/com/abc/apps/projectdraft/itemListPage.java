@@ -34,7 +34,7 @@ public class itemListPage extends AppCompatActivity {
     TextView amount, priceOfItem, itemName;
     Button addToCart;
 
-    private static  final String BASE_URL = "http://192.168.1.111/Restaurant/getItems.php?catName=Burgers";
+    private static  final String BASE_URL = "http://192.168.1.104/rest/getItems.php?catName=Burgers";
 // "http://192.168.1.111/Restaurant/getItems.php?catName=" +catName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

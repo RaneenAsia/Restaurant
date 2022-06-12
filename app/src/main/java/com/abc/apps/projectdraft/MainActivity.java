@@ -104,7 +104,7 @@ if(sharedPref.getString(getString(R.string.username_key),null)!=null) {
         @Override
         public void run(){
             RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
-            String url = "http://172.19.13.45/rest/login.php?username=" + log + "&passwrd=" + pass;
+            String url = "http://192.168.1.104/rest/login.php?username=" + log + "&passwrd=" + pass;
             JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url,
                     null, new Response.Listener<JSONArray>() {
                 @Override
@@ -178,4 +178,3 @@ if(sharedPref.getString(getString(R.string.username_key),null)!=null) {
 
 
     }
-}

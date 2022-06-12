@@ -37,7 +37,7 @@ public class comment_main extends AppCompatActivity {
     }
     public void cmtSub_onClick(View view){
         cmt=edt.getText().toString();
-        String url1 = "http://172.19.13.45/rest/add_cmt.php";
+        String url1 = "http://192.168.1.104/rest/rest/add_cmt.php";
         RequestQueue queue1 = Volley.newRequestQueue(comment_main.this);
         StringRequest request1 = new StringRequest(Request.Method.POST, url1, new com.android.volley.Response.Listener<String>() {
             @Override

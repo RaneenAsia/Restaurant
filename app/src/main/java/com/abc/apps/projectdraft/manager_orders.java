@@ -32,7 +32,7 @@ public class  manager_orders extends AppCompatActivity {
         name=findViewById(R.id.usen);
         ordertxt=findViewById(R.id.det);
         Intent intent=getIntent();
-        order msg=(order)intent.getSerializableExtra("KEY_NAME");
+        order_class msg=(order_class)intent.getSerializableExtra("KEY_NAME");
 
         id=msg.getOrderID();
         name.setText(msg.getOrderID()+"-"+msg.getCustomerId());
