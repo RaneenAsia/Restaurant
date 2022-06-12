@@ -20,4 +20,10 @@
         <item>Comments</item>
         <item>Orders</item>
     </string-array>
+    <string name="username_key"></string>
+    <string name="preference_file_key">prefs</string>
+    <string name="password_key"></string>
+    <string name="usernameEmp_key">usser</string>
+    <string name="passwordEmp_key">pass</string>
+
 </resources>

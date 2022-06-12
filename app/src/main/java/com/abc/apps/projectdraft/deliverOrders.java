@@ -41,7 +41,7 @@ public class  deliverOrders extends AppCompatActivity {
         for(int i=0;i<txt.length;i++) {
             fin+=txt[i]+"\n";
         }
-        fin+="Address:\n"+msg.getAddress()+"Payment: \n"+msg.getPayment();
+        fin+="Address:\n"+msg.getAddress()+"\nPayment: \n"+msg.getPayment();
         ordertxt.setText(fin);
     }
 

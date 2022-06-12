@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@drawable/images"
+    android:gravity="center"
+    tools:context=".menu_main">
+
+    <Button
+        android:id="@+id/menuBtn"
+        android:text="Menu"
+        style="@style/set"
+        android:onClick="menu_onClick"/>
+
+    <Button
+
+        android:id="@+id/commentBtn"
+        android:text="Comment"
+        style="@style/set"
+        android:onClick="comment_onClick"
+        />
+    <Button
+        style="@style/set"
+        android:id="@+id/statBtn"
+        android:text="Status"
+        android:onClick="stat_onClick"
+        />
+</LinearLayout>

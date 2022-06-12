@@ -3,6 +3,7 @@ package com.abc.apps.projectdraft;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,6 +33,7 @@ private EditText pass_conf;
 public static int size=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up);
         username=findViewById(R.id.username);
@@ -98,6 +100,7 @@ public static int size=0;
 
             queue.add(request);
             if (size != 0) {
+
                toast.show();
                 Log.e("hi", "Done");
             } else {
@@ -151,6 +154,7 @@ public static int size=0;
                 // below line is to make
                 // a json object request.
                 queue1.add(request1);
+                Intent intent=new Intent(signup_main.this,cust_login.class);
             }
         }
     }
