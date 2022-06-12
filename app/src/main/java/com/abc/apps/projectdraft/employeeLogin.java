@@ -114,6 +114,7 @@ public class employeeLogin extends AppCompatActivity {
 
                 }
                 Log.e("hi","Done");
+                startActivity(destination);
             } else {
                 Looper.prepare();
                 Toast.makeText(employeeLogin.this, "Ughhh",

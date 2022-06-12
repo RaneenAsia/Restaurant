@@ -25,6 +25,7 @@ public class  manager_orders extends AppCompatActivity {
     private TextView name;
     private TextView ordertxt;
     int id;
+    String url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +48,7 @@ public class  manager_orders extends AppCompatActivity {
 
 
     public void don_onClick(View view) {
-        String url = "http://192.168.1.104/rest/deleteOrder.php";
+        url = "http://192.168.1.104/rest/deleteOrder.php";
         RequestQueue queue = Volley.newRequestQueue(manager_orders.this);
         StringRequest request = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
             @Override

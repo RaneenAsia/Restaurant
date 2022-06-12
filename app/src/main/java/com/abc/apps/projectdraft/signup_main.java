@@ -72,7 +72,7 @@ public static int size=0;
         @Override
         public void run() {
             RequestQueue queue = Volley.newRequestQueue(signup_main.this);
-            String url = "http://172.19.13.45/rest/check_user.php?username="+user;
+            String url = "http://192.168.1.104/rest/check_user.php?username="+user;
             JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url,
                     null, new Response.Listener<JSONArray>() {
                 @Override
@@ -104,7 +104,7 @@ public static int size=0;
                toast.show();
                 Log.e("hi", "Done");
             } else {
-                String url1 = "http://172.19.13.45/rest/add_user.php";
+                String url1 = "http://192.168.1.104/rest/add_user.php";
                 RequestQueue queue1 = Volley.newRequestQueue(signup_main.this);
                 StringRequest request1 = new StringRequest(Request.Method.POST, url1, new com.android.volley.Response.Listener<String>() {
                     @Override

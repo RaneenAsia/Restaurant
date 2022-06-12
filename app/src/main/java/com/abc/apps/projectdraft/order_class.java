@@ -1,6 +1,8 @@
 package com.abc.apps.projectdraft;
 
-public class order_class {
+import java.io.Serializable;
+
+public class order_class implements Serializable {
     private int orderID;
     private String customerId;
     private String order;
@@ -67,7 +69,7 @@ public class order_class {
 
     @Override
     public String toString() {
-        return orderId +
+        return orderID +
                 ", " + customerId +
                 "," + order +
                 ","+ status+ "," + payment +

@@ -76,7 +76,6 @@
 
             </intent-filter>
         </activity>
-        //////////////////////////////////////
         <activity
             android:name=".Category"
             android:exported="true"
@@ -117,8 +116,7 @@
         </activity>
         <activity
             android:name=".menuHome"
-            android:exported="true"
-            tools:ignore="DuplicateActivity">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.GET_CONTENT"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -127,20 +125,27 @@
         </activity>
         <activity
             android:name=".menu_main"
-            android:exported="true"
-            tools:ignore="Instantiatable">
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.ACTION_SEND"/>
+                <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
 
             </intent-filter>
         </activity>
         <activity
             android:name=".stat_main"
-            android:exported="true"
-            tools:ignore="Instantiatable">
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.ACTION_SEND"/>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".comment_main"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
 
             </intent-filter>

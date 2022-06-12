@@ -35,7 +35,7 @@ public class stat_main extends AppCompatActivity {
         setContentView(R.layout.stat_page);
         lst=findViewById(R.id.status);
         Intent intent=getIntent();
-        str=intent.getStringExtra("username").toString();
+        str=intent.getStringExtra("username");
         Thread thread=new Thread(new Orders());
          thread.start();
     }

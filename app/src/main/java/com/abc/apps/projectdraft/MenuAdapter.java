@@ -71,7 +71,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
             public void onClick(View v){
 
                 Intent intent = new Intent(v.getContext(), itemListPage.class);
-                String clicked = captions[holder.getAbsoluteAdapterPosition()];
+                String clicked = captions[holder.getAdapterPosition()];
                 intent.putExtra("category", clicked);
                // Toast.makeText(v.getContext(), captions[holder.getAbsoluteAdapterPosition()], Toast.LENGTH_SHORT).show();
                 v.getContext().startActivity(intent);
