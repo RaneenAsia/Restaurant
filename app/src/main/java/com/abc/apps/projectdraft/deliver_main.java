@@ -47,28 +47,32 @@ public class deliver_main extends AppCompatActivity {
                     null, new Response.Listener<JSONArray>() {
                 @Override
                 public void onResponse(JSONArray response) {
-                    ArrayList<String> orders = new ArrayList<>();
+                    ArrayList<order> orders = new ArrayList<>();
                     for (int i = 0; i < response.length(); i++) {
                         try {
                             JSONObject obj = response.getJSONObject(i);
-                            orders.add(obj.getString("orderID")+"," +obj.getString("customerID")+","+ obj.getString("orderCon")+","+obj.getString("status")+","+obj.getString("payment")+","+obj.getString("Address"));
+                            orders.add(new order(Integer.parseInt(obj.getString("orderID")), obj.getString("customerID"), obj.getString("orderCon"),obj.getString("status"),Double.parseDouble(obj.getString("payment")),obj.getString("Address")));
                             Log.e("hi", obj.toString() );
                         }catch(JSONException exception){
                             Log.d("Error", exception.toString());
                         }
                     }
-                    String[] arr = new String[orders.size()];
-                    arr = orders.toArray(arr);
-                    ArrayList<order> ordersF=new ArrayList<>();
-                    for(int i=0;i<arr.length;i++){
-                        String[] del=arr[i].split(",");
-                        for(int j=0;j<del.length;j++){
-                            ordersF.add(new order(Integer.parseInt(del[0]),del[1],del[2],del[3],Double.parseDouble(del[4]),del[5]));
-                        }
-                    }
-                    ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                            deliver_main.this, android.R.layout.simple_list_item_1,
-                            orders);
+//                    String[] arr = new String[orders.size()];
+//                    arr = orders.toArray(arr);
+//                    ArrayList<order> ordersF=new ArrayList<>();
+//                    for(int i=0;i<orders.size();i++){
+//                        String[] del=arr[i].split(",");
+//                        for(int j=0;j<del.length;j++){
+//                            ordersF.add(new order(Integer.parseInt(del[0]),del[1],del[2],del[3],Double.parseDouble(del[4]),del[5]));
+//                        }
+//                    }
+                    orderAdapter adapter = new orderAdapter(deliver_main.this, R.layout.order_view,orders);
+// Attach the adapter to a ListView
+//                    ListView listView = (ListView) findViewById(R.id.lvItems);
+//                    listView.setAdapter(adapter);
+//                    ArrayAdapter<String> adapter = new ArrayAdapter<>(
+//                            deliver_main.this, android.R.layout.simple_list_item_1,
+//                            orders);
                     lst.setAdapter(adapter);
 
                 }
@@ -89,7 +93,8 @@ public class deliver_main extends AppCompatActivity {
             lst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Object listItem = lst.getItemAtPosition(position);
+                    order listItem =(order) lst.getItemAtPosition(position);
+
                     String[] str=listItem.toString().split(",");
                     order ord1=new order(Integer.parseInt(str[0]),str[1],str[2],str[3],Double.parseDouble(str[4]),str[5]);
                     Intent intent=new Intent(deliver_main.this, deliverOrders.class);

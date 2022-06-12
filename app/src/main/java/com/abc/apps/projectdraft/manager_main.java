@@ -1,5 +1,6 @@
 package com.abc.apps.projectdraft;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -34,6 +35,7 @@ public class manager_main extends AppCompatActivity implements AdapterView.OnIte
     RequestQueue queue;
     RequestQueue queue1;
     RequestQueue queue2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -125,6 +127,7 @@ public class manager_main extends AppCompatActivity implements AdapterView.OnIte
         }
         else if(st.equals("Orders")){
             Thread thread3=new Thread(new Orders());
+            thread3.start();
         }
     }
     class Comments implements Runnable{
@@ -180,11 +183,11 @@ public class manager_main extends AppCompatActivity implements AdapterView.OnIte
                     null, new Response.Listener<JSONArray>() {
                 @Override
                 public void onResponse(JSONArray response) {
-                    ArrayList<String> comments = new ArrayList<>();
+                    ArrayList<order> orders = new ArrayList<>();
                     for (int i = 0; i < response.length(); i++) {
                         try {
                             JSONObject obj = response.getJSONObject(i);
-                            comments.add(obj.getString("orderID")+"," +obj.getString("customerID")+","+ obj.getString("orderCon")+","+obj.getString("status")+","+obj.getString("payment")+","+obj.getString("Address"));
+                            orders.add(new order(Integer.parseInt(obj.getString("orderID")), obj.getString("customerID"), obj.getString("orderCon"),obj.getString("status"),Double.parseDouble(obj.getString("payment")),obj.getString("Address")));
                             Log.v("hi", obj.toString() );
                         }catch(JSONException exception){
                             Log.d("Error", exception.toString());
@@ -192,9 +195,7 @@ public class manager_main extends AppCompatActivity implements AdapterView.OnIte
                     }
 
 
-                    ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                            manager_main.this, android.R.layout.simple_list_item_1,
-                            comments);
+                    orderAdapter adapter = new orderAdapter(manager_main.this, R.layout.order_view,orders);
                     listview.setAdapter(adapter);
 
                 }
@@ -210,7 +211,16 @@ public class manager_main extends AppCompatActivity implements AdapterView.OnIte
 
 
             queue2.add(request);
-//
+          listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    order listItem = (order)listview.getItemAtPosition(position);
+                      Intent intent=new Intent(manager_main.this, deliverOrders.class);
+                    intent.putExtra("KEY_NAME",listItem);
+                    startActivity(intent);
+
+                }
+            });
         }
     }
 
